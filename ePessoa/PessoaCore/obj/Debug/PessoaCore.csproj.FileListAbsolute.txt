@@ -1,0 +1,15 @@
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\bin\Debug\PessoaCore.dll
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\bin\Debug\PessoaCore.pdb
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\obj\Debug\PessoaCore.dll
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\obj\Debug\PessoaCore.pdb
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\bin\Debug\PessoaCore.dll.config
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\bin\Debug\EntityFramework.dll
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\bin\Debug\EntityFramework.SqlServer.dll
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\bin\Debug\EntityFramework.xml
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\bin\Debug\EntityFramework.SqlServer.xml
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\bin\Debug\AutoMapper.dll
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\bin\Debug\System.ValueTuple.dll
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\bin\Debug\AutoMapper.pdb
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\bin\Debug\AutoMapper.xml
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\bin\Debug\System.ValueTuple.xml
+C:\inetpub\wwwroot\ManterPessoa\ePessoa\PessoaCore\obj\Debug\PessoaCore.csprojResolveAssemblyReference.cache

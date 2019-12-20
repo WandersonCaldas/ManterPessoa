@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f5b7ce4d8ede4c2da1ebfcf7f6a86005" Name="Diagram1">
+        <EntityTypeShape EntityType="DbPessoaModel.tbl_cidade" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbPessoaModel.tbl_estado" Width="1.5" PointX="1.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbPessoaModel.tbl_pessoa" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbPessoaModel.tbl_pessoa_contato" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbPessoaModel.tbl_pessoa_endereco" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbPessoaModel.tbl_pessoa_fisica" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbPessoaModel.tbl_pessoa_juridica" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <AssociationConnector Association="DbPessoaModel.FK_tbl_cidade_tbl_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="DbPessoaModel.FK_tbl_pessoa_endereco_tbl_cidade" ManuallyRouted="false" />
+        <AssociationConnector Association="DbPessoaModel.FK_tbl_pessoa_endereco_tbl_estado" ManuallyRouted="false" />
+        <AssociationConnector Association="DbPessoaModel.FK_tbl_pessoa_contato_tbl_pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="DbPessoaModel.FK_tbl_pessoa_endereco_tbl_pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="DbPessoaModel.FK_tbl_pessoa_fisica_tbl_pessoa" ManuallyRouted="false" />
+        <AssociationConnector Association="DbPessoaModel.FK_tbl_pessoa_juridica_tbl_pessoa" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

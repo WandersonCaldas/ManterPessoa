@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbPessoaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_cidade">
+    <Key>
+      <PropertyRef Name="cod_cidade" />
+    </Key>
+    <Property Name="cod_cidade" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="txt_cidade" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cod_estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_estado">
+    <Key>
+      <PropertyRef Name="cod_estado" />
+    </Key>
+    <Property Name="cod_estado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="txt_estado" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="txt_sigla" Type="varchar" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_pessoa">
+    <Key>
+      <PropertyRef Name="cod_pessoa" />
+    </Key>
+    <Property Name="cod_pessoa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="txt_pessoa" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="txt_email" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_pessoa_contato">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cod_pessoa_contato" Type="int" Nullable="false" />
+    <Property Name="txt_telefone" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_pessoa_endereco">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cod_pessoa_endereco" Type="int" Nullable="false" />
+    <Property Name="txt_cep" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="txt_endereco" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="txt_complemento" Type="varchar" MaxLength="255" />
+    <Property Name="cod_estado" Type="int" />
+    <Property Name="cod_cidade" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_pessoa_fisica">
+    <Key>
+      <PropertyRef Name="cod_pessoa_fisica" />
+    </Key>
+    <Property Name="cod_pessoa_fisica" Type="int" Nullable="false" />
+    <Property Name="txt_cpf" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="txt_rg" Type="varchar" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="tbl_pessoa_juridica">
+    <Key>
+      <PropertyRef Name="cod_pessoa_juridica" />
+    </Key>
+    <Property Name="cod_pessoa_juridica" Type="int" Nullable="false" />
+    <Property Name="txt_cnpj" Type="varchar" MaxLength="14" Nullable="false" />
+    <Property Name="txt_nome_fantasia" Type="varchar" MaxLength="255" />
+    <Property Name="txt_inscricao" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_tbl_cidade_tbl_estado">
+    <End Role="tbl_estado" Type="Self.tbl_estado" Multiplicity="1" />
+    <End Role="tbl_cidade" Type="Self.tbl_cidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_estado">
+        <PropertyRef Name="cod_estado" />
+      </Principal>
+      <Dependent Role="tbl_cidade">
+        <PropertyRef Name="cod_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_pessoa_contato_tbl_pessoa">
+    <End Role="tbl_pessoa" Type="Self.tbl_pessoa" Multiplicity="1" />
+    <End Role="tbl_pessoa_contato" Type="Self.tbl_pessoa_contato" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_pessoa">
+        <PropertyRef Name="cod_pessoa" />
+      </Principal>
+      <Dependent Role="tbl_pessoa_contato">
+        <PropertyRef Name="cod_pessoa_contato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_pessoa_endereco_tbl_cidade">
+    <End Role="tbl_cidade" Type="Self.tbl_cidade" Multiplicity="0..1" />
+    <End Role="tbl_pessoa_endereco" Type="Self.tbl_pessoa_endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_cidade">
+        <PropertyRef Name="cod_cidade" />
+      </Principal>
+      <Dependent Role="tbl_pessoa_endereco">
+        <PropertyRef Name="cod_cidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_pessoa_endereco_tbl_estado">
+    <End Role="tbl_estado" Type="Self.tbl_estado" Multiplicity="0..1" />
+    <End Role="tbl_pessoa_endereco" Type="Self.tbl_pessoa_endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_estado">
+        <PropertyRef Name="cod_estado" />
+      </Principal>
+      <Dependent Role="tbl_pessoa_endereco">
+        <PropertyRef Name="cod_estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_pessoa_endereco_tbl_pessoa">
+    <End Role="tbl_pessoa" Type="Self.tbl_pessoa" Multiplicity="1" />
+    <End Role="tbl_pessoa_endereco" Type="Self.tbl_pessoa_endereco" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_pessoa">
+        <PropertyRef Name="cod_pessoa" />
+      </Principal>
+      <Dependent Role="tbl_pessoa_endereco">
+        <PropertyRef Name="cod_pessoa_endereco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_pessoa_fisica_tbl_pessoa">
+    <End Role="tbl_pessoa" Type="Self.tbl_pessoa" Multiplicity="1" />
+    <End Role="tbl_pessoa_fisica" Type="Self.tbl_pessoa_fisica" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_pessoa">
+        <PropertyRef Name="cod_pessoa" />
+      </Principal>
+      <Dependent Role="tbl_pessoa_fisica">
+        <PropertyRef Name="cod_pessoa_fisica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_pessoa_juridica_tbl_pessoa">
+    <End Role="tbl_pessoa" Type="Self.tbl_pessoa" Multiplicity="1" />
+    <End Role="tbl_pessoa_juridica" Type="Self.tbl_pessoa_juridica" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_pessoa">
+        <PropertyRef Name="cod_pessoa" />
+      </Principal>
+      <Dependent Role="tbl_pessoa_juridica">
+        <PropertyRef Name="cod_pessoa_juridica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbPessoaModelStoreContainer">
+    <EntitySet Name="tbl_cidade" EntityType="Self.tbl_cidade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_estado" EntityType="Self.tbl_estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_pessoa" EntityType="Self.tbl_pessoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_pessoa_contato" EntityType="Self.tbl_pessoa_contato" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_pessoa_endereco" EntityType="Self.tbl_pessoa_endereco" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_pessoa_fisica" EntityType="Self.tbl_pessoa_fisica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_pessoa_juridica" EntityType="Self.tbl_pessoa_juridica" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_cidade_tbl_estado" Association="Self.FK_tbl_cidade_tbl_estado">
+      <End Role="tbl_estado" EntitySet="tbl_estado" />
+      <End Role="tbl_cidade" EntitySet="tbl_cidade" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_pessoa_contato_tbl_pessoa" Association="Self.FK_tbl_pessoa_contato_tbl_pessoa">
+      <End Role="tbl_pessoa" EntitySet="tbl_pessoa" />
+      <End Role="tbl_pessoa_contato" EntitySet="tbl_pessoa_contato" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_pessoa_endereco_tbl_cidade" Association="Self.FK_tbl_pessoa_endereco_tbl_cidade">
+      <End Role="tbl_cidade" EntitySet="tbl_cidade" />
+      <End Role="tbl_pessoa_endereco" EntitySet="tbl_pessoa_endereco" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_pessoa_endereco_tbl_estado" Association="Self.FK_tbl_pessoa_endereco_tbl_estado">
+      <End Role="tbl_estado" EntitySet="tbl_estado" />
+      <End Role="tbl_pessoa_endereco" EntitySet="tbl_pessoa_endereco" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_pessoa_endereco_tbl_pessoa" Association="Self.FK_tbl_pessoa_endereco_tbl_pessoa">
+      <End Role="tbl_pessoa" EntitySet="tbl_pessoa" />
+      <End Role="tbl_pessoa_endereco" EntitySet="tbl_pessoa_endereco" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_pessoa_fisica_tbl_pessoa" Association="Self.FK_tbl_pessoa_fisica_tbl_pessoa">
+      <End Role="tbl_pessoa" EntitySet="tbl_pessoa" />
+      <End Role="tbl_pessoa_fisica" EntitySet="tbl_pessoa_fisica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_pessoa_juridica_tbl_pessoa" Association="Self.FK_tbl_pessoa_juridica_tbl_pessoa">
+      <End Role="tbl_pessoa" EntitySet="tbl_pessoa" />
+      <End Role="tbl_pessoa_juridica" EntitySet="tbl_pessoa_juridica" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbPessoaModelStoreContainer" CdmEntityContainer="DbPessoaEntities">
+    <EntitySetMapping Name="tbl_cidade">
+      <EntityTypeMapping TypeName="DbPessoaModel.tbl_cidade">
+        <MappingFragment StoreEntitySet="tbl_cidade">
+          <ScalarProperty Name="cod_cidade" ColumnName="cod_cidade" />
+          <ScalarProperty Name="txt_cidade" ColumnName="txt_cidade" />
+          <ScalarProperty Name="cod_estado" ColumnName="cod_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_estado">
+      <EntityTypeMapping TypeName="DbPessoaModel.tbl_estado">
+        <MappingFragment StoreEntitySet="tbl_estado">
+          <ScalarProperty Name="txt_sigla" ColumnName="txt_sigla" />
+          <ScalarProperty Name="cod_estado" ColumnName="cod_estado" />
+          <ScalarProperty Name="txt_estado" ColumnName="txt_estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_pessoa">
+      <EntityTypeMapping TypeName="DbPessoaModel.tbl_pessoa">
+        <MappingFragment StoreEntitySet="tbl_pessoa">
+          <ScalarProperty Name="cod_pessoa" ColumnName="cod_pessoa" />
+          <ScalarProperty Name="txt_pessoa" ColumnName="txt_pessoa" />
+          <ScalarProperty Name="txt_email" ColumnName="txt_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_pessoa_contato">
+      <EntityTypeMapping TypeName="DbPessoaModel.tbl_pessoa_contato">
+        <MappingFragment StoreEntitySet="tbl_pessoa_contato">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cod_pessoa_contato" ColumnName="cod_pessoa_contato" />
+          <ScalarProperty Name="txt_telefone" ColumnName="txt_telefone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_pessoa_endereco">
+      <EntityTypeMapping TypeName="DbPessoaModel.tbl_pessoa_endereco">
+        <MappingFragment StoreEntitySet="tbl_pessoa_endereco">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cod_pessoa_endereco" ColumnName="cod_pessoa_endereco" />
+          <ScalarProperty Name="txt_cep" ColumnName="txt_cep" />
+          <ScalarProperty Name="txt_endereco" ColumnName="txt_endereco" />
+          <ScalarProperty Name="txt_complemento" ColumnName="txt_complemento" />
+          <ScalarProperty Name="cod_estado" ColumnName="cod_estado" />
+          <ScalarProperty Name="cod_cidade" ColumnName="cod_cidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_pessoa_fisica">
+      <EntityTypeMapping TypeName="DbPessoaModel.tbl_pessoa_fisica">
+        <MappingFragment StoreEntitySet="tbl_pessoa_fisica">
+          <ScalarProperty Name="cod_pessoa_fisica" ColumnName="cod_pessoa_fisica" />
+          <ScalarProperty Name="txt_cpf" ColumnName="txt_cpf" />
+          <ScalarProperty Name="txt_rg" ColumnName="txt_rg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_pessoa_juridica">
+      <EntityTypeMapping TypeName="DbPessoaModel.tbl_pessoa_juridica">
+        <MappingFragment StoreEntitySet="tbl_pessoa_juridica">
+          <ScalarProperty Name="cod_pessoa_juridica" ColumnName="cod_pessoa_juridica" />
+          <ScalarProperty Name="txt_cnpj" ColumnName="txt_cnpj" />
+          <ScalarProperty Name="txt_nome_fantasia" ColumnName="txt_nome_fantasia" />
+          <ScalarProperty Name="txt_inscricao" ColumnName="txt_inscricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
