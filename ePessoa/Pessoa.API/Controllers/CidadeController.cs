@@ -16,8 +16,7 @@ using PessoaCore.BO.Response;
 namespace Pessoa.API.Controllers
 {
     public class CidadeController : ApiController
-    {
-        private DbPessoaEntities db = new DbPessoaEntities();
+    {        
         private CidadeBO _regra = new CidadeBO();
 
         // GET: api/Cidade
