@@ -11,6 +11,7 @@ using System.Web.Http.Description;
 using PessoaCore.Model;
 using PessoaCore.ViewModel;
 using PessoaCore.BO;
+using PessoaCore.BO.Response;
 
 namespace Pessoa.API.Controllers
 {
@@ -32,7 +33,57 @@ namespace Pessoa.API.Controllers
 
             return Ok(retorno);
         }
-             
+
+        [ResponseType(typeof(Estado))]
+        public IHttpActionResult Posttbl_estado(Estado obj)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            Estado retorno = new Estado();
+            retorno = _regra.Inserir(obj);
+
+            if (!retorno.status.Equals(ResponseStatus.SUCESSO.Texto))
+            {
+                return Ok(retorno);
+            }
+
+            return CreatedAtRoute("DefaultApi", new { id = retorno.cod_estado }, obj);
+        }
+
+        [ResponseType(typeof(void))]
+        public IHttpActionResult Puttbl_cidade(int id, Estado obj)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }            
+
+            obj.cod_estado = id;
+
+            Estado retorno = new Estado();
+            retorno = _regra.Alterar(obj);
+
+            return Ok(retorno);
+        }
+
+        [ResponseType(typeof(Estado))]
+        public IHttpActionResult Deletetbl_estado(int id)
+        {
+            Estado obj = _regra.BuscarPorId(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            Estado retorno = new Estado();
+            retorno = _regra.Excluir(obj);
+
+            return Ok(obj);
+        }
+
         protected override void Dispose(bool disposing)
         {
             PessoaCore.DAO.EstadoDAO d = new PessoaCore.DAO.EstadoDAO();

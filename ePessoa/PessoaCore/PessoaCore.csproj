@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="BO\CidadeBO.cs" />
     <Compile Include="BO\EstadoBO.cs" />
+    <Compile Include="BO\Response\ResponseErro.cs" />
     <Compile Include="BO\Response\ResponseMensagem.cs" />
     <Compile Include="BO\Response\ResponseStatus.cs" />
     <Compile Include="BO\Response\ResponseTipoPessoa.cs" />
